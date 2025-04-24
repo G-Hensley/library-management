@@ -21,6 +21,15 @@ public class Library {
         throw new IllegalArgumentException("Item with ID: " + id + " not found");
     }
 
+    public void returnItem(String id) {
+        for (LibraryItem item: items) {
+            if (item.getId().equals(id)) {
+                item.returnItem();
+            }
+        }
+        throw new IllegalArgumentException("Item with ID: " + id + " not found");
+    }
+
     public void listAllItems() {
         System.out.println("Available items: ");
         for (LibraryItem item: items) {
