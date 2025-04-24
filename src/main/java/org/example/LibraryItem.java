@@ -1,6 +1,6 @@
 package org.example;
 
-public class LibraryItem {
+public abstract class LibraryItem {
 
     private final String title;
     private final String id;
@@ -18,4 +18,6 @@ public class LibraryItem {
 
     protected void setAvailable(boolean available) {this.isAvailable = available;}
 
+    public abstract void borrowItem();
+    public abstract void returnItem();
 }
