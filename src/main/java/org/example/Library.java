@@ -25,16 +25,21 @@ public class Library {
         for (LibraryItem item: items) {
             if (item.getId().equals(id)) {
                 item.returnItem();
+                return;
             }
         }
         throw new IllegalArgumentException("Item with ID: " + id + " not found");
     }
 
     public void listAllItems() {
-        System.out.println("Available items: ");
-        for (LibraryItem item: items) {
-            if (item.isAvailable()) {
-                System.out.println("\t" + item.getTitle() + " (ID: " + item.getId() + ")");
+        System.out.println("Library items: ");
+
+        if (items.isEmpty()) {
+            System.out.println("\tNo items found");
+        } else {
+            for (LibraryItem item: items) {
+                String status = item.isAvailable() ? "Available" : "Borrowed";
+                System.out.println("\t" + item.getTitle() + " (ID: " + item.getId() + "): " + status);
             }
         }
     }
